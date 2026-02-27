@@ -1,0 +1,84 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define gradients and effects -->
+  <defs>
+    <!-- Gradient for Anonymity circle -->
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <!-- Gradient for Hyperlocal circle -->
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#50E3C2;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#2ECC71;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <!-- Gradient for Safety circle -->
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Dot pattern -->
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Dark background -->
+  <rect width="1200" height="800" fill="#1a1f2e"/>
+  
+  <!-- Decorative grid pattern -->
+  <rect width="1200" height="800" fill="url(#dots)"/>
+  
+  <!-- Venn diagram circles -->
+  <!-- Anonymity circle (top left) -->
+  <circle cx="420" cy="300" r="200" fill="url(#grad1)" stroke="#4A90E2" stroke-width="2" filter="url(#glow)"/>
+  
+  <!-- Hyperlocal circle (top right) -->
+  <circle cx="780" cy="300" r="200" fill="url(#grad2)" stroke="#50E3C2" stroke-width="2" filter="url(#glow)"/>
+  
+  <!-- Safety/Accountability circle (bottom) -->
+  <circle cx="600" cy="520" r="200" fill="url(#grad3)" stroke="#9B59B6" stroke-width="2" filter="url(#glow)"/>
+  
+  <!-- Circle labels -->
+  <text x="320" y="180" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4A90E2" text-anchor="middle">ANONYMITY</text>
+  <text x="320" y="210" font-family="Arial, sans-serif" font-size="14" fill="#6BA3D8" text-anchor="middle">Yik Yak</text>
+  <text x="320" y="230" font-family="Arial, sans-serif" font-size="14" fill="#6BA3D8" text-anchor="middle">Jodel</text>
+  <text x="320" y="250" font-family="Arial, sans-serif" font-size="14" fill="#6BA3D8" text-anchor="middle">Whisper</text>
+  
+  <text x="880" y="180" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#50E3C2" text-anchor="middle">HYPERLOCAL</text>
+  <text x="880" y="210" font-family="Arial, sans-serif" font-size="14" fill="#6FE8CC" text-anchor="middle">Nextdoor</text>
+  <text x="880" y="230" font-family="Arial, sans-serif" font-size="14" fill="#6FE8CC" text-anchor="middle">Facebook</text>
+  <text x="880" y="250" font-family="Arial, sans-serif" font-size="14" fill="#6FE8CC" text-anchor="middle">Groups</text>
+  
+  <text x="600" y="680" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#9B59B6" text-anchor="middle">SAFETY/ACCOUNTABILITY</text>
+  <text x="520" y="710" font-family="Arial, sans-serif" font-size="14" fill="#B77DC9" text-anchor="middle">LinkedIn</text>
+  <text x="600" y="710" font-family="Arial, sans-serif" font-size="14" fill="#B77DC9" text-anchor="middle">Reddit</text>
+  
+  <!-- Intersection labels -->
+  <text x="570" y="240" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle" opacity="0.7">Lacked</text>
+  <text x="570" y="255" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle" opacity="0.7">Safety</text>
+  
+  <text x="720" y="240" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle" opacity="0.7">Lacked</text>
+  <text x="720" y="255" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle" opacity="0.7">Anonymity</text>
+  
+  <text x="490" y="460" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle" opacity="0.7">Missing</text>
+  <text x="490" y="475" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle" opacity="0.7">Hyperlocal</text>
+  <text x="490" y="490" font-family="Arial, sans-serif" font-size="12" fill="#FFD700" text-anchor="middle" opacity="0.7">Pulse</text>
+  
+  <!-- Center - The Sweet Spot -->
+  <circle cx="600" cy="360" r="80" fill="none" stroke="#FFD700" stroke-width="3" stroke-dasharray="5,5" filter="url(#glow)"/>
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#FFD700" text-anchor="middle">?</text>
+  <text x="600" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFD700" text-anchor="middle">THE MISSING</text>
+  <text x="600" y="392" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFD700" text-anchor="middle">PLATFORM</text>
+</svg>

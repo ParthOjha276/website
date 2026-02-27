@@ -2,35 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================
-   Base behavior
-   ========================= */
+@layer base {
 
-html {
-  scroll-behavior: smooth;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif tracking-tight text-bpcc-navy;
+  }
+
+  p {
+    @apply font-sans text-bpcc-grey leading-relaxed;
+  }
+
+  body {
+    @apply bg-bpcc-cream antialiased selection:bg-bpcc-gold selection:text-white;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-body {
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -ms-overflow-style: none;
-  /* IE + Edge */
-  scrollbar-width: none;
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
 
-
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-/* Hide scrollbar but keep scroll */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* =========================
-   Accessibility
-   ========================= */
-
-:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
