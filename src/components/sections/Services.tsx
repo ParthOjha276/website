@@ -136,6 +136,7 @@ const Services = () => {
 
             {/* process  */}
 
+
             <div className="py-24 px-6 max-w-7xl mx-auto border-t border-bpcc-navy/5">
                 <div className="text-center mb-16">
                     <h2 className="font-serif text-3xl md:text-4xl text-bpcc-navy">
@@ -159,7 +160,13 @@ const Services = () => {
                                 <div className="hidden md:block absolute -top-10 w-1 h-10 bg-bpcc-navy group-hover:bg-[#F1C18A] transition-colors"></div>
                                 <div className="hidden md:block absolute -top-[2.7rem] w-4 h-4 bg-[#F1C18A] rounded-full border-2 border-bpcc-cream z-10"></div>
 
-                                <div className="bg-[#F1C18A] w-full p-6 rounded-xl shadow-sm hover:-translate-y-2 hover:shadow-lg transition-all duration-300 relative min-h-[180px] flex flex-col justify-center">
+                                {/* THE CARD with STRONGER SHADOWS */}
+                                {/* Changed rgba(11,17,32,0.1) -> rgba(11,17,32,0.2) for better visibility */}
+                                <div className="bg-[#F1C18A] w-full p-6 rounded-xl relative min-h-[180px] flex flex-col justify-center transition-all duration-500 ease-out 
+                                        shadow-[0_10px_40px_-10px_rgba(11,17,32,0.2)] 
+                                        group-hover:-translate-y-2 
+                                        group-hover:shadow-[0_20px_50px_-12px_rgba(241,193,138,0.9)]">
+
                                     <div className="hidden md:block absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[12px] border-b-[#F1C18A]"></div>
                                     <span className="block text-4xl font-serif font-bold text-bpcc-navy/20 mb-1">{item.step}</span>
                                     <h3 className="font-serif text-lg font-bold text-bpcc-navy leading-tight">{item.title}</h3>

@@ -1,124 +1,116 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            // CHANGED: We now switch MUCH earlier (at 100px scroll)
-            // This prevents the "white text on white background" clash
-            setIsScrolled(window.scrollY > 100);
+            setScrolled(window.scrollY > 50);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-        e.preventDefault();
-        const element = document.getElementById(id);
-        if (element) {
-            const headerOffset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-            setIsMobileMenuOpen(false);
-        }
-    };
-
     const navLinks = [
-        { name: 'Home', id: 'home' },
-        { name: 'About', id: 'about' },
-        { name: 'Our Work', id: 'work' },
-        { name: 'Process', id: 'process' },
-        { name: 'Team', id: 'contact' },
+        { name: 'Process', href: '#process' },
+        { name: 'Work', href: '#work' },
+        { name: 'Team', href: '#team' },
     ];
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${isScrolled
-                ? 'bg-bpcc-cream shadow-md py-4' // Solid Cream Mode
-                : 'bg-transparent py-6'          // Transparent Mode
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
+                ? 'bg-bpcc-cream/95 backdrop-blur-md shadow-sm py-3 border-b border-bpcc-navy/5'
+                : 'bg-transparent py-6'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
-                {/* LOGO */}
-                <Link href="/" onClick={(e) => scrollToSection(e, 'home')} className="group relative z-50">
-                    <span className={`font-serif text-2xl font-bold tracking-tight transition-colors duration-300 ${
-                        // Text turns Navy immediately when scrolled
-                        isScrolled || isMobileMenuOpen ? 'text-bpcc-navy' : 'text-white'
-                        }`}>
-                        BPCC<span className="text-bpcc-gold">.</span>
-                    </span>
-                </Link>
 
-                {/* DESKTOP LINKS */}
+                <a href="#" className="flex items-center gap-3 group">
+
+                    <div className="relative w-10 h-10">
+                        <img
+                            src={scrolled ? "/bpcclogo.png" : "/bpcclogo_light.png"}
+                            alt="BPCC Logo"
+                            className="w-full h-full object-contain transition-opacity duration-300"
+                        />
+                    </div>
+
+                    <div className="flex flex-col">
+                        <span className={`font-serif text-lg font-bold leading-none tracking-tight transition-colors duration-500 ${scrolled ? 'text-bpcc-navy' : 'text-white'
+                            }`}>
+                            BITS Pilani
+                        </span>
+                        <span className="text-[10px] font-bold text-bpcc-gold tracking-[0.2em] uppercase">
+                            Consulting Club
+                        </span>
+                    </div>
+                </a>
+
+
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
-                            href={`#${link.id}`}
-                            onClick={(e) => scrollToSection(e, link.id)}
-                            className={`text-sm font-sans font-medium tracking-wide transition-colors duration-300 hover:text-bpcc-gold ${
-                                // Text turns Navy immediately when scrolled
-                                isScrolled ? 'text-bpcc-navy' : 'text-white/90'
+                            href={link.href}
+                            className={`text-sm font-bold uppercase tracking-widest transition-colors duration-300 relative group ${scrolled
+                                ? 'text-bpcc-navy/70 hover:text-[#F1C18A]'
+                                : 'text-white/80 hover:text-[#F1C18A]'
                                 }`}
+                        >
+                            {link.name}
+                            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#F1C18A] transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                    ))}
+
+                    <a
+                        href="mailto:excom@bits-consulting.club"
+                        className={`px-6 py-2 text-xs font-bold uppercase tracking-widest rounded-full transition-all duration-300 flex items-center gap-2 shadow-lg ${scrolled
+                            ? 'bg-bpcc-navy text-white hover:bg-[#F1C18A]' // Dark button on Light bg
+                            : 'bg-white text-bpcc-navy hover:bg-[#F1C18A] hover:text-white' // Light button on Dark bg
+                            }`}
+                    >
+                        Contact Us
+                        <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                </div>
+
+
+                <button
+                    className={`md:hidden transition-colors duration-300 ${scrolled ? 'text-bpcc-navy' : 'text-white'
+                        }`}
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
+            </div>
+
+            <div className={`md:hidden absolute top-full left-0 w-full bg-bpcc-cream border-t border-bpcc-navy/5 shadow-xl transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
+                <div className="flex flex-col p-6 gap-4">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            className="text-bpcc-navy font-serif text-xl hover:text-[#F1C18A] hover:pl-2 transition-all"
+                            onClick={() => setIsOpen(false)}
                         >
                             {link.name}
                         </a>
                     ))}
-
-                    <button
-                        onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className={`px-6 py-2 rounded-sm text-sm font-semibold transition-all duration-300 border ${isScrolled
-                            ? 'border-bpcc-navy text-bpcc-navy hover:bg-bpcc-navy hover:text-white'
-                            : 'border-white text-white hover:bg-white hover:text-bpcc-navy'
-                            }`}
-                    >
-                        Partner With Us
-                    </button>
-                </div>
-
-                {/* MOBILE MENU ICON */}
-                <button
-                    className="md:hidden relative z-50 p-2"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? (
-                        <X className="text-bpcc-navy w-6 h-6" />
-                    ) : (
-                        <Menu className={`w-6 h-6 transition-colors duration-300 ${isScrolled ? 'text-bpcc-navy' : 'text-white'}`} />
-                    )}
-                </button>
-            </div>
-
-            {/* MOBILE FULLSCREEN MENU */}
-            <div
-                className={`fixed inset-0 bg-bpcc-cream z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-300 md:hidden ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
-                    }`}
-            >
-                {navLinks.map((link) => (
+                    <div className="h-[1px] bg-bpcc-navy/10 my-2"></div>
                     <a
-                        key={link.name}
-                        href={`#${link.id}`}
-                        onClick={(e) => scrollToSection(e, link.id)}
-                        className="text-bpcc-navy font-serif text-3xl font-medium hover:text-bpcc-gold"
+                        href="mailto:excom@bits-consulting.club"
+                        className="text-[#F1C18A] font-bold uppercase tracking-widest text-sm flex items-center gap-2"
                     >
-                        {link.name}
+                        Get in Touch <ArrowUpRight className="w-4 h-4" />
                     </a>
-                ))}
+                </div>
             </div>
         </nav>
     );

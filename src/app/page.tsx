@@ -2,6 +2,8 @@ import Navbar from '../components/layout/Navbar';
 import Hero from '../components/sections/Hero';
 import LogoTicker from '../components/sections/LogoTicker';
 import Services from '../components/sections/Services';
+import Projects from '../components/sections/Projects';
+import Team from '../components/sections/Team';
 import Testimonials from '../components/sections/Testimonials';
 import AboutBITS from '../components/sections/AboutBITS';
 
@@ -15,6 +17,10 @@ export default function Home() {
       <LogoTicker />
 
       <Services />
+
+      <Projects />
+
+      <Team />
 
       <Testimonials />
 
