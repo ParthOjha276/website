@@ -162,7 +162,7 @@ const Hero = () => {
                     <div className="flex items-center gap-3 mb-8">
                         <div className="h-[1px] bg-[#F1C18A] w-12"></div>
                         <span className="text-[#F1C18A] font-bold tracking-widest text-xs uppercase">
-                            Est. 2020 • BITS Pilani
+                            Est. 20XX • BITS Pilani Consulting Club
                         </span>
                     </div>
 
