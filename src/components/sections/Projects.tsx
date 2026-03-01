@@ -1,118 +1,103 @@
 import React from 'react';
-import { HeartHandshake, Globe2, Target, Users, BarChart3 } from 'lucide-react';
 
 const Projects = () => {
     return (
-        /* 1. Reduced Section Padding (py-24 -> py-12) to fit in viewport */
-        <section id="work" className="py-12 bg-bpcc-cream border-t border-bpcc-navy/5">
+        <section id="work" className="py-20 bg-bpcc-cream border-t border-bpcc-navy/5">
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* HEADER: Reduced bottom margin (mb-16 -> mb-10) */}
-                <div className="mb-10 md:flex justify-between items-end">
-                    <div className="max-w-2xl">
-                        <h4 className="text-bpcc-gold font-sans font-bold tracking-widest text-sm uppercase mb-2">
-                            Capstone Projects
+                <div className="mb-12 border-b border-bpcc-navy/10 pb-8 flex justify-between items-end">
+                    <div className="max-w-xl">
+                        <h4 className="text-[#F1C18A] font-sans font-bold tracking-[0.2em] text-[10px] uppercase mb-2">
+                            Engagement Portfolio
                         </h4>
-                        <h2 className="font-serif text-3xl md:text-4xl text-bpcc-navy">
-                            Driving Real-World Impact
+                        <h2 className="font-serif text-3xl text-bpcc-navy">
+                            Selected Capstone Projects
                         </h2>
                     </div>
-                    <div className="hidden md:block">
-                        <p className="text-bpcc-grey text-right text-xs uppercase tracking-wider font-bold">
-                            Selected engagements from our portfolio
-                        </p>
-                    </div>
+                    <p className="hidden md:block font-serif italic text-bpcc-navy/50 text-sm max-w-[240px] text-right">
+                        Direct impact delivered through rigorous strategic analysis.
+                    </p>
                 </div>
 
-                {/* PROJECTS GRID: Tighter Gap (gap-6 -> gap-5) */}
-                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-bpcc-navy/10">
                     {[
                         {
                             client: "Infosys Foundation",
-                            type: "Social Impact",
-                            icon: <HeartHandshake className="w-5 h-5" />,
-                            challenge: "Needed monitoring for 500k+ beneficiaries across 15+ NGOs.",
-                            solution: "Developed tracking SOPs and real-time evaluation dashboards.",
-                            impact: "Boosted CSR decision-making speed significantly."
+                            type: "Social Impact Strategy",
+                            challenge: "Developing a monitoring framework for 500k+ beneficiaries across 15+ diverse NGOs.",
+                            solution: "Engineered comprehensive tracking SOPs and real-time evaluation dashboards for field data.",
+                            impact: "Accelerated CSR decision-making and resource allocation efficiency."
                         },
                         {
                             client: "VISIT Health",
-                            type: "Event Strategy",
-                            icon: <Globe2 className="w-5 h-5" />,
-                            challenge: "Lacked data-backed view of Employee Benefits for a major conclave.",
-                            solution: "Synthesized market trends into evidence-based narratives.",
-                            impact: "Established VISIT as an industry authority."
+                            type: "Market Authority",
+                            challenge: "Lacked a data-backed narrative on Employee Benefits for a major industry conclave.",
+                            solution: "Synthesized complex market trends into evidence-based strategic narratives for HR leaders.",
+                            impact: "Positioned client as the primary industry authority in corporate healthcare."
                         },
                         {
                             client: "NuPort",
-                            type: "Market Expansion",
-                            icon: <Target className="w-5 h-5" />,
-                            challenge: "Required insights to shape GTM launch and scale operations.",
-                            solution: "Conducted analysis and built a decision-ready strategic framework.",
-                            impact: "Aligned strategy with actionable clarity for growth."
+                            type: "Go-To-Market",
+                            challenge: "Required granular market insights to shape GTM launch for autonomous trucking.",
+                            solution: "Conducted deep-dive competitive analysis and built a decision-ready entry framework.",
+                            impact: "Aligned core strategy with actionable clarity for immediate operational scale."
                         },
                         {
                             client: "Smile Foundation",
-                            type: "Ops Strategy",
-                            icon: <Users className="w-5 h-5" />,
-                            challenge: "Challenges in tracking educational outcomes for 'Shiksha Na Ruke'.",
-                            solution: "Created a digital-first monitoring framework for student retention.",
-                            impact: "Enabled data-driven resource allocation."
+                            type: "Operational Excellence",
+                            challenge: "Challenges in tracking long-term outcomes for the 'Shiksha Na Ruke' initiative.",
+                            solution: "Architected a digital-first monitoring framework focused on student retention reporting.",
+                            impact: "Enabled high-precision data-driven resource allocation for educational programs."
                         }
                     ].map((project, index) => (
-                        /* Card Style: Reduced Padding (p-8 -> p-6) */
                         <div
                             key={index}
-                            className="group bg-[#FDFBF7] p-6 rounded-r-xl border-l-4 border-[#F1C18A] shadow-sm hover:shadow-[0_10px_40px_-10px_rgba(11,17,32,0.1)] transition-all duration-300 relative overflow-hidden"
+                            className="group p-10 border-r border-b border-bpcc-navy/10 bg-transparent transition-colors duration-300"
                         >
-                            {/* Header: Icon + Type (Reduced bottom margin mb-6 -> mb-3) */}
-                            <div className="flex justify-between items-center mb-3">
-                                <div className="w-10 h-10 bg-[#F1C18A]/10 rounded-full flex items-center justify-center text-bpcc-navy shadow-sm border border-[#F1C18A]/20 group-hover:bg-[#F1C18A] group-hover:text-white transition-colors duration-300">
-                                    {project.icon}
+                            <div className="flex justify-between items-center mb-8">
+                                <div className="flex items-center gap-3">
+                                    <span className="text-[9px] font-bold text-[#F1C18A] opacity-80 uppercase tracking-[0.2em]">
+                                        {project.type}
+                                    </span>
                                 </div>
-                                <span className="text-[9px] font-bold text-bpcc-gold uppercase tracking-widest border border-bpcc-gold/20 px-2 py-1 rounded-full bg-bpcc-gold/5">
-                                    {project.type}
+                                <span className="font-serif text-bpcc-navy/5 text-3xl select-none group-hover:text-[#F1C18A] transition-colors duration-300">
+                                    0{index + 1}
                                 </span>
                             </div>
 
-                            {/* Client Name (Reduced text size and margin) */}
-                            <h3 className="text-xl font-serif text-bpcc-navy mb-4 font-bold">
+                            <h3 className="text-2xl font-serif text-bpcc-navy mb-6 font-bold group-hover:text-[#F1C18A] transition-colors duration-300">
                                 {project.client}
                             </h3>
 
-                            {/* Content: Tighter spacing (space-y-4 -> space-y-3) */}
-                            <div className="space-y-3 relative z-10">
-                                <div>
-                                    <h4 className="text-[10px] font-bold text-bpcc-grey uppercase tracking-wider mb-1 flex items-center gap-2">
-                                        <div className="w-1 h-1 bg-red-400 rounded-full"></div> Challenge
+                            <div className="space-y-6">
+                                <div className="grid grid-cols-1 gap-1">
+                                    <h4 className="text-[9px] font-bold text-bpcc-navy/30 uppercase tracking-widest">
+                                        Challenge
                                     </h4>
-                                    <p className="text-xs text-bpcc-navy/80 leading-relaxed">
-                                        {project.challenge}
+                                    <p className="text-sm text-bpcc-navy/80 leading-relaxed italic font-serif">
+                                        "{project.challenge}"
                                     </p>
                                 </div>
 
-                                <div>
-                                    <h4 className="text-[10px] font-bold text-bpcc-grey uppercase tracking-wider mb-1 flex items-center gap-2">
-                                        <div className="w-1 h-1 bg-blue-400 rounded-full"></div> Solution
+                                <div className="grid grid-cols-1 gap-1">
+                                    <h4 className="text-[9px] font-bold text-bpcc-navy/30 uppercase tracking-widest">
+                                        Solution
                                     </h4>
-                                    <p className="text-xs text-bpcc-navy/80 leading-relaxed">
+                                    <p className="text-xs text-bpcc-navy/60 leading-relaxed font-medium">
                                         {project.solution}
                                     </p>
                                 </div>
 
-                                <div className="pt-3 border-t border-bpcc-navy/5 mt-3">
-                                    <h4 className="text-[10px] font-bold text-[#F1C18A] uppercase tracking-wider mb-1 flex items-center gap-2">
-                                        <BarChart3 className="w-3 h-3" /> Impact
-                                    </h4>
-                                    <p className="text-xs font-medium text-bpcc-navy italic">
-                                        "{project.impact}"
-                                    </p>
+                                <div className="pt-5 border-t border-bpcc-navy/5 flex items-center gap-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#F1C18A]"></div>
+                                    <span className="text-[10px] font-bold text-bpcc-navy uppercase tracking-wider">
+                                        Impact: <span className="text-bpcc-navy/60">{project.impact}</span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

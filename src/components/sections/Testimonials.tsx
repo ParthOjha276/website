@@ -6,6 +6,7 @@ const Testimonials = () => {
         <section id="testimonials" className="py-24 bg-bpcc-cream border-t border-bpcc-navy/5">
             <div className="max-w-7xl mx-auto px-6">
 
+                {/* HEADER */}
                 <div className="text-center mb-16">
                     <h4 className="text-bpcc-gold font-sans font-bold tracking-widest text-sm uppercase mb-3">
                         Client Impact
@@ -34,14 +35,17 @@ const Testimonials = () => {
                             key={index}
                             className="group bg-white p-10 rounded-2xl border border-bpcc-navy/5 shadow-sm hover:shadow-[0_20px_50px_-12px_rgba(11,17,32,0.1)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col"
                         >
+                            {/* DECORATIVE QUOTE MARK */}
                             <Quote className="absolute top-6 right-8 w-24 h-24 text-[#F1C18A]/10 rotate-180 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[190deg]" />
 
+                            {/* 1. THE QUOTE */}
                             <div className="relative z-10 mb-8 flex-grow">
                                 <p className="font-serif text-lg md:text-xl text-bpcc-navy italic leading-relaxed opacity-90">
                                     "{item.quote}"
                                 </p>
                             </div>
 
+                            {/* 2. THE AUTHOR */}
                             <div className="relative z-10 flex items-center gap-4 pt-6 border-t border-bpcc-navy/5 mt-auto">
                                 <div className="flex flex-col">
                                     <h4 className="text-sm font-bold text-bpcc-navy uppercase tracking-wide">

@@ -35,7 +35,7 @@ const Navbar = () => {
 
                     <div className="relative w-10 h-10">
                         <img
-                            src={scrolled ? "/bpcclogo_light.png" : "/bpcclogo.png"}
+                            src={scrolled ? "/bpcclogo.png" : "/bpcclogo_light.png"}
                             alt="BPCC Logo"
                             className="w-full h-full object-contain transition-opacity duration-300"
                         />

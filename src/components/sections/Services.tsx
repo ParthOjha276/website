@@ -17,61 +17,73 @@ const Services = () => {
     return (
         <section id="process" className="bg-bpcc-cream">
 
-            {/* expertise  */}
+
             <div className="py-24 px-6 max-w-7xl mx-auto">
-                <div className="text-center mb-16">
+                <div className="mb-20">
                     <h4 className="text-bpcc-gold font-sans font-bold tracking-widest text-sm uppercase mb-3">
                         Our Expertise
                     </h4>
-                    <h2 className="font-serif text-4xl md:text-5xl text-bpcc-navy">
+                    <h2 className="font-serif text-4xl md:text-5xl text-bpcc-navy max-w-2xl">
                         Tailored Consulting Solutions
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-bpcc-navy/10">
                     {[
                         {
-                            icon: <Rocket className="w-8 h-8" />,
+                            num: "01",
                             title: "Market Entry",
                             desc: "Break into new segments, geographies, or verticals with tailored research and impact-driven strategy."
                         },
                         {
-                            icon: <Box className="w-8 h-8" />,
+                            num: "02",
                             title: "Product Consulting",
                             desc: "Turn user insights into actionable feedback, helping you prioritize the right features, flows, and fixes."
                         },
                         {
-                            icon: <Settings className="w-8 h-8" />,
+                            num: "03",
                             title: "Tailored Services",
                             desc: "From strategy to execution, we customize our approach to fit your stage, sector, and specific challenges."
                         },
                         {
-                            icon: <TrendingUp className="w-8 h-8" />,
+                            num: "04",
                             title: "Company Strategy",
                             desc: "We work at the foundational level to assess your business model and market positioning to sharpen direction."
                         },
                         {
-                            icon: <Search className="w-8 h-8" />,
+                            num: "05",
                             title: "Research",
                             desc: "Uncover nuanced insights specific to your business and industry beyond basic market trends."
                         },
                         {
-                            icon: <BarChart3 className="w-8 h-8" />,
+                            num: "06",
                             title: "Market Strategies",
                             desc: "Channels, pricing, and activation playbooks created to build scalable go-to-market strategies with your team."
                         }
                     ].map((service, index) => (
                         <div
                             key={index}
-                            className="bg-[#F1C18A] p-8 rounded-lg shadow-sm group hover:-translate-y-2 hover:shadow-lg transition-all duration-300 border border-bpcc-gold/20"
+                            className="group relative p-10 border-r border-b border-bpcc-navy/10 
+                           bg-transparent hover:bg-bpcc-navy 
+                           transition-colors duration-500 cursor-default 
+                           flex flex-col justify-between min-h-[280px]"
                         >
-                            <div className="text-bpcc-navy mb-6 group-hover:scale-110 transition-transform duration-300 bg-white/20 w-16 h-16 rounded-full flex items-center justify-center">
-                                {service.icon}
+                            <div className="mb-8">
+                                <span className="font-serif text-4xl text-bpcc-navy/10 group-hover:text-[#F1C18A] transition-colors duration-500">
+                                    {service.num}
+                                </span>
                             </div>
-                            <h3 className="font-serif text-xl text-bpcc-navy mb-3 font-bold">{service.title}</h3>
-                            <p className="text-bpcc-navy/80 text-sm leading-relaxed font-medium">
-                                {service.desc}
-                            </p>
+
+                            <div>
+                                <h3 className="font-serif text-2xl text-bpcc-navy mb-3 group-hover:text-[#F1C18A] transition-colors duration-300">
+                                    {service.title}
+                                </h3>
+
+                                <p className="text-sm text-bpcc-navy/60 leading-relaxed group-hover:text-white/80 transition-colors duration-300">
+                                    {service.desc}
+                                </p>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -160,8 +172,7 @@ const Services = () => {
                                 <div className="hidden md:block absolute -top-10 w-1 h-10 bg-bpcc-navy group-hover:bg-[#F1C18A] transition-colors"></div>
                                 <div className="hidden md:block absolute -top-[2.7rem] w-4 h-4 bg-[#F1C18A] rounded-full border-2 border-bpcc-cream z-10"></div>
 
-                                {/* THE CARD with STRONGER SHADOWS */}
-                                {/* Changed rgba(11,17,32,0.1) -> rgba(11,17,32,0.2) for better visibility */}
+
                                 <div className="bg-[#F1C18A] w-full p-6 rounded-xl relative min-h-[180px] flex flex-col justify-center transition-all duration-500 ease-out 
                                         shadow-[0_10px_40px_-10px_rgba(11,17,32,0.2)] 
                                         group-hover:-translate-y-2 
